@@ -1,6 +1,8 @@
 "use strict";
 
-function _readOnlyError(name) { throw new TypeError("\"" + name + "\" is read-only"); }
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+var _readOnlyError2 = _interopRequireDefault(require("@babel/runtime/helpers/readOnlyError"));
 
 var _require = require('mssql'),
     ConnectionPool = _require.ConnectionPool;
@@ -45,7 +47,7 @@ function CloseAllPools() {
   POOLS.forEach(function (pool) {
     pool.close();
   });
-  POOLS = (_readOnlyError("POOLS"), {});
+  POOLS = ((0, _readOnlyError2["default"])("POOLS"), {});
   return true;
 }
 

@@ -1,19 +1,19 @@
 "use strict";
 
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.GetDetalleErrorEstadoLocal = exports.getSucursalesStatus = void 0;
 
+var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
+
+var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/asyncToGenerator"));
+
 var _mssql = _interopRequireDefault(require("mssql"));
 
 var _DB_Config_SGV = _interopRequireDefault(require("../database/DB_Config_SGV"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 Date.prototype.addDays = function (days) {
   var date = new Date(this.valueOf());
@@ -33,10 +33,10 @@ function CrearEstatusTiendaDias(data, tienda) {
 ; //Coleccion estado de sucursales.
 
 var getSucursalesStatus = /*#__PURE__*/function () {
-  var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(req, res) {
+  var _ref = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee(req, res) {
     var dateIni, _short, date, today, conjuntoDeFechas, datosPorFecha, datos, pool, i, aux, fecha, tiendasEasy;
 
-    return regeneratorRuntime.wrap(function _callee$(_context) {
+    return _regenerator["default"].wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
@@ -123,51 +123,44 @@ var getSucursalesStatus = /*#__PURE__*/function () {
 exports.getSucursalesStatus = getSucursalesStatus;
 
 var GetDetalleErrorEstadoLocal = /*#__PURE__*/function () {
-  var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(req, res) {
-    var data, _short2, date, fecha, pool, EstadoLocalDetalleError;
-
-    return regeneratorRuntime.wrap(function _callee2$(_context2) {
+  var _ref2 = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee2(req, res) {
+    var data, pool, EstadoLocalDetalleError;
+    return _regenerator["default"].wrap(function _callee2$(_context2) {
       while (1) {
         switch (_context2.prev = _context2.next) {
           case 0:
             _context2.prev = 0;
             data = req.query;
-            _short2 = data.ID.split(" ");
-            date = _short2[0].split("-");
-            fecha = new Date(date[2], date[1] - 1, date[0]);
-            console.log(data.codSAP);
-            console.log(fecha.toISOString().substring(0, 10));
-            _context2.next = 9;
+            _context2.next = 4;
             return _mssql["default"].connect(_DB_Config_SGV["default"]);
 
-          case 9:
+          case 4:
             pool = _context2.sent;
-            _context2.next = 12;
-            return pool.request().input('codSAP', _mssql["default"].VarChar, data.codSAP).input('fecha', _mssql["default"].VarChar, fecha.toISOString().substring(0, 10).replace(/-/g, '')).execute("SGVMOE_TLogErrorGetBySucursalFecha");
+            _context2.next = 7;
+            return pool.request().input('codSAP', _mssql["default"].VarChar, data.codSAP).input('fecha', _mssql["default"].VarChar, data.ID.replace(/-/g, '')).execute("SGVMOE_TLogErrorGetBySucursalFecha");
 
-          case 12:
+          case 7:
             EstadoLocalDetalleError = _context2.sent;
-            console.log(EstadoLocalDetalleError);
             res.json({
-              EstadoLocalDetalleError: EstadoLocalDetalleError
+              EstadoLocalDetalleError: EstadoLocalDetalleError.recordsets[0]
             });
 
             _mssql["default"].close();
 
-            _context2.next = 21;
+            _context2.next = 15;
             break;
 
-          case 18:
-            _context2.prev = 18;
+          case 12:
+            _context2.prev = 12;
             _context2.t0 = _context2["catch"](0);
             console.log(_context2.t0);
 
-          case 21:
+          case 15:
           case "end":
             return _context2.stop();
         }
       }
-    }, _callee2, null, [[0, 18]]);
+    }, _callee2, null, [[0, 12]]);
   }));
 
   return function GetDetalleErrorEstadoLocal(_x3, _x4) {
