@@ -19,7 +19,7 @@ export const tiposInterfacesReducer = (state = dataInicial, action) => {
 //Acciones
 export const obtenerTiposInterfacesAccion = () => async (dispatch) => {
     try {
-        const res = await axios.get('http://localhost:4000/api/tiposInterfaces');
+        const res = await axios.get('http://172.18.148.14:4000/api/tiposInterfaces');
         dispatch({
             type: OBTENER_TIPOSINTERFACES_EXITO,
             payload: res.data

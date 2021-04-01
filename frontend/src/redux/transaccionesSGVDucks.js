@@ -22,7 +22,7 @@ export const transaccionesSGVReducer = (state = dataInicial, action) => {
 //Acciones
 export const transaccionesSGVAccion = (IdTLogHeader, IdTlogDetail, Terminal, NumTransaccion, Folio, selectedDate, Local, TipoDTE, CanalVTA) => async (dispatch) => {
     try {
-        const res = await axios.get('http://localhost:4000/api/transacciones',{params: {IdTLogHeader, IdTlogDetail, Terminal, NumTransaccion, Folio, selectedDate, Local, TipoDTE, CanalVTA}});
+        const res = await axios.get('http://172.18.148.14:4000/api/transacciones',{params: {IdTLogHeader, IdTlogDetail, Terminal, NumTransaccion, Folio, selectedDate, Local, TipoDTE, CanalVTA}});
         dispatch({
             type: OBTENER_TRANSACCIONESSGV_EXITO,
             payload: {

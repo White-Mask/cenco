@@ -37,7 +37,7 @@ export const authReducer = (state = dataInicial, action) => {
 export const loginAccion = (username, password) => async (dispatch) => {
     try {
         let data = { username, password }
-        const res = await axios.post('http://localhost:4000/api/auth/signin', data);
+        const res = await axios.post('http://172.18.148.14:4000/api/auth/signin', data);
         if (res.data) {
             dispatch({
                 type: LOGIN_SUCCESS,
@@ -88,7 +88,7 @@ export const logoutAccion = () => async (dispatch) => {
 export const isValidToken = () => async (dispatch) => {
     if (localStorage.getItem('key')) {
         try {
-            const res = await axios.post('http://localhost:4000/api/auth/Verify', { headers: { 'x-access-token': JSON.parse(localStorage.getItem('key')) } });
+            const res = await axios.post('http://172.18.148.14:4000/api/auth/Verify', { headers: { 'x-access-token': JSON.parse(localStorage.getItem('key')) } });
             if (res.data.isValid === true) {
                 dispatch({
                     type: LOGIN_SUCCESS,

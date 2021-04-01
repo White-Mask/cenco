@@ -26,7 +26,7 @@ export const ModuloReducer = (state = dataInicial, action) => {
 //Acciones
 export const obtenerModuloAccion = () => async (dispatch) => {
     try {
-        const res = await axios.get('http://localhost:4000/api/perfiles/modulos');
+        const res = await axios.get('http://172.18.148.14:4000/api/perfiles/modulos');
         dispatch({
             type: OBTENER_MODULOS_EXITO,
             payload: res.data.Modulos
@@ -40,7 +40,7 @@ export const obtenerModuloAccion = () => async (dispatch) => {
 
 export const obtenerModuloIdAccion = (IdPerfil) => async (dispatch) => {
     try {
-        const res = await axios.get('http://localhost:4000/api/perfiles/modulosid', { params: { IdPerfil: IdPerfil } });
+        const res = await axios.get('http://172.18.148.14:4000/api/perfiles/modulosid', { params: { IdPerfil: IdPerfil } });
         dispatch({
             type: OBTENER_MODULOSID_EXITO,
             payload: res.data
@@ -54,7 +54,7 @@ export const obtenerModuloIdAccion = (IdPerfil) => async (dispatch) => {
 
 export const crearModuloAccion = (Modulo) => async (dispatch) => {
     try {
-        const res = await axios.get('http://localhost:4000/api/modulo', { params: { Modulo } });
+        const res = await axios.get('http://172.18.148.14:4000/api/modulo', { params: { Modulo } });
         dispatch({
             type: OBTENER_MODULOSID_EXITO,
             payload: res.data
@@ -68,7 +68,7 @@ export const crearModuloAccion = (Modulo) => async (dispatch) => {
 
 export const editarModuloAccion = (Id, Modulo) => async (dispatch) => {
     try {
-        const res = await axios.get('http://localhost:4000/api/modulo', { params: { Id, Modulo } });
+        const res = await axios.get('http://172.18.148.14:4000/api/modulo', { params: { Id, Modulo } });
         dispatch({
             type: OBTENER_MODULOSID_EXITO,
             payload: res.data
@@ -82,7 +82,7 @@ export const editarModuloAccion = (Id, Modulo) => async (dispatch) => {
 
 export const eliminarModuloAccion = (Id) => async (dispatch) => {
     try {
-        const res = await axios.get('http://localhost:4000/api/modulo', { params: { Id } });
+        const res = await axios.get('http://172.18.148.14:4000/api/modulo', { params: { Id } });
         dispatch({
             type: OBTENER_MODULOSID_EXITO,
             payload: res.data

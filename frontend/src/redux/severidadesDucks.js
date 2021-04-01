@@ -19,7 +19,7 @@ export const severidadesReducer = (state = dataInicial, action) => {
 //Acciones
 export const obtenerSeveridadesAccion = () => async (dispatch) => {
     try {
-        const res = await axios.get('http://localhost:4000/api/severidades');
+        const res = await axios.get('http://172.18.148.14:4000/api/severidades');
         dispatch({
             type: OBTENER_SEVERIDADES_EXITO,
             payload: res.data

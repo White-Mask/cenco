@@ -19,7 +19,7 @@ export const tiposEstadosReducer = (state = dataInicial, action) => {
 //Acciones
 export const obtenerTiposEstadosAccion = () => async (dispatch) => {
     try {
-        const res = await axios.get('http://localhost:4000/api/tiposEstados');
+        const res = await axios.get('http://172.18.148.14:4000/api/tiposEstados');
         dispatch({
             type: OBTENER_TIPOSESTADOS_EXITO,
             payload: res.data

@@ -19,7 +19,7 @@ export const tiendasEasyReducer = (state = dataInicial, action) => {
 //Acciones
 export const obtenerTiendasEasyAccion = () => async (dispatch, action) => {
     try {
-        const res = await axios.get('http://localhost:4000/api/tiendasEasy');
+        const res = await axios.get('http://172.18.148.14:4000/api/tiendasEasy');
         dispatch({
             type: OBTENER_TIENDASEASY_EXITO,
             payload: res.data

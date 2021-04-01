@@ -23,7 +23,7 @@ export const excluirLocalAlarmaReducer = (state = dataInicial, action) => {
 //Acciones
 export const excluirLocalAlarmaAccion = (tienda) => async (dispatch) => {
     try {
-        const res = await axios.get('http://localhost:4000/api/excluye-local-alarma', { params: { Local: tienda } })
+        const res = await axios.get('http://172.18.148.14:4000/api/excluye-local-alarma', { params: { Local: tienda } })
         dispatch({
             type: EXCLUIR_LOCAL_ALARMA_EXITO,
             payload: res.data

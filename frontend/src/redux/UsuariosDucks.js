@@ -34,7 +34,7 @@ export const usuariosReducer = (state = dataInicial, action) => {
 //Traer todos los usuarios.
 export const obtenerUsuariosAccion = () => async (dispatch) => {
     try {
-        const res = await axios.get('http://localhost:4000/api/users');
+        const res = await axios.get('http://172.18.148.14:4000/api/users');
         dispatch({
             type: OBTENER_USUARIOS_EXITO,
             payload: res.data
@@ -50,7 +50,7 @@ export const obtenerUsuariosAccion = () => async (dispatch) => {
 export const crearUsuarioAccion = (Nombres, ApellidoP, ApellidoM, Email, Username, IdPerfil) => async (dispatch) => {
     try {
         let data = { Nombres, ApellidoP, ApellidoM, Email, Username, IdPerfil }
-        const res = await axios.post('http://localhost:4000/api/users/', data);
+        const res = await axios.post('http://172.18.148.14:4000/api/users/', data);
         dispatch({
             type: CREAR_USUARIO_EXITO,
             payload: res.data.message
@@ -66,7 +66,7 @@ export const crearUsuarioAccion = (Nombres, ApellidoP, ApellidoM, Email, Usernam
 export const actualizarUsuarioAccion = (Id, Nombres, ApellidoP, ApellidoM, Email, Username, IdPerfil) => async (dispatch) => {
     try {
         let data = { Id, Nombres, ApellidoP, ApellidoM, Email, Username, IdPerfil }
-        const res = await axios.put(`http://localhost:4000/api/users/${Id}`, data);
+        const res = await axios.put(`http://172.18.148.14:4000/api/users/${Id}`, data);
         dispatch({
             type: ACTUALIZAR_USUARIO_EXITO,
             payload: res.data.message
@@ -81,7 +81,7 @@ export const actualizarUsuarioAccion = (Id, Nombres, ApellidoP, ApellidoM, Email
 //Eliminar un usuario
 export const eliminarUsuarioAccion = (Id) => async (dispatch) => {
     try {
-        const res = await axios.delete(`http://localhost:4000/api/users/${Id}`, { Id });
+        const res = await axios.delete(`http://172.18.148.14:4000/api/users/${Id}`, { Id });
         dispatch({
             type: ELIMINAR_USUARIO_EXITO,
             payload: res.data.message

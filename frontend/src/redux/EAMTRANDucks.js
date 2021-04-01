@@ -26,7 +26,7 @@ export const EAMTRANReducer = (state = dataInicial, action) => {
 //Acciones
 export const EAMTRANAccion = (local, fecha) => async (dispatch) => {
     try {
-        const res = await axios.get('http://localhost:4000/api/eamtran', { params: { ID: fecha, Local: local } });
+        const res = await axios.get('http://172.18.148.14:4000/api/eamtran', { params: { ID: fecha, Local: local } });
         dispatch({
             type: OBTENER_EAMTRAN_EXITO,
             payload: {
@@ -44,7 +44,7 @@ export const EAMTRANAccion = (local, fecha) => async (dispatch) => {
 export const actualizarEAMTRANAccion = (eamtran, ultimoLote, fechaUltimoLote, local, fechaFiscal, fechaUltimoLoteOrig, status) => async (dispatch) => {
     try {
         let data = { eamtran, ultimoLote, fechaUltimoLote, local, fechaFiscal, fechaUltimoLoteOrig, status }
-        const res = await axios.put('http://localhost:4000/api/eamtran', data);
+        const res = await axios.put('http://172.18.148.14:4000/api/eamtran', data);
         dispatch({
             type: UPDATE_EAMTRAN_EXITO,
             payload: res.data

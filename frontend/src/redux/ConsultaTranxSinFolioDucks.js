@@ -22,7 +22,7 @@ export const consultaTranxSinFolioReducer = (state = dataInicial, action) => {
 //Acciones
 export const consultaTranxSinFolioAccion = (FechaIni, FechaFin) => async (dispatch) => {
     try {
-        const res = await axios.get('http://localhost:4000/api/consulta-tranx-sin-folio', { params: { FechaIni, FechaFin } })
+        const res = await axios.get('http://172.18.148.14:4000/api/consulta-tranx-sin-folio', { params: { FechaIni, FechaFin } })
         dispatch({
             type: CONSULTA_TRANX_SIN_FOLIO_EXITO,
             payload: {

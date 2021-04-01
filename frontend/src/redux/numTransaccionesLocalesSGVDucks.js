@@ -19,7 +19,7 @@ export const numTransaccionesLocalesSGVReducer = (state = dataInicial, action) =
 //Acciones
 export const numTransaccionesLocalesSGVAccion = () => async (dispatch, action) => {
     try {
-        const res = await axios.get('http://localhost:4000/api/numero-transacciones-locales-sgv');
+        const res = await axios.get('http://172.18.148.14:4000/api/numero-transacciones-locales-sgv');
         dispatch({
             type: OBTENER_NUMTRANSACCIONESLOCALESSGV,
             payload: res.data

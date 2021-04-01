@@ -19,7 +19,7 @@ export const reenviarCC3Reducer = (state = dataInicial, action) => {
 //Acciones
 export const reenviarCC3Accion = (fecha,CodSap) => async (dispatch) => {
     try {
-        const res = await axios.get('http://localhost:4000/api/reenviar-cc3',{params:{ID:fecha, Local: CodSap}})
+        const res = await axios.get('http://172.18.148.14:4000/api/reenviar-cc3',{params:{ID:fecha, Local: CodSap}})
         dispatch({
             type: reenviarCC3_EXITO,
             payload: res.data

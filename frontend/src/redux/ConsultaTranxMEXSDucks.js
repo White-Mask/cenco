@@ -23,7 +23,7 @@ export const consultaTranxMEXSReducer = (state = dataInicial, action) => {
 export const consultaTranxMEXSAccion = (FechaIni, FechaFin) => async (dispatch) => {
     try {
 
-        const res = await axios.get('http://localhost:4000/api/consulta-tranx-MEXS', { params: { FechaIni, FechaFin } })
+        const res = await axios.get('http://172.18.148.14:4000/api/consulta-tranx-MEXS', { params: { FechaIni, FechaFin } })
         
         dispatch({
             type: CONSULTA_TRANX_MEXS_EXITO,

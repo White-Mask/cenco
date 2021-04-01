@@ -22,7 +22,7 @@ export const numTransaccionesLocalesCDPReducer = (state = dataInicial, action) =
 //Acciones
 export const numTransaccionesLocalesCDPAccion = (fecha) => async (dispatch) => {
     try {
-        const res = await axios.get('http://localhost:4000/api/numero-transacciones-locales-cdp', { params: { ID: fecha } });
+        const res = await axios.get('http://172.18.148.14:4000/api/numero-transacciones-locales-cdp', { params: { ID: fecha } });
         dispatch({
             type: OBTENER_NUMTRANSACCIONESLOCALESCDP,
             payload: res.data

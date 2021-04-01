@@ -27,7 +27,7 @@ export const estadoTiendaReducer = (state = dataInicial, action) => {
 //Acciones
 export const obtenerEStadoTiendaAccion = (fecha) => async (dispatch) => {
     try {
-        const res = await axios.get('http://localhost:4000/api/sucursales-status', { params: { ID: fecha } })
+        const res = await axios.get('http://172.18.148.14:4000/api/sucursales-status', { params: { ID: fecha } })
         dispatch({
             type: OBTENER_ESTADOSTIENDA_EXITO,
             payload: res.data
@@ -41,7 +41,7 @@ export const obtenerEStadoTiendaAccion = (fecha) => async (dispatch) => {
 
 export const obtenerEstadoLocalDetalleErrorAccion = (codSAP, fecha) => async (dispatch) => {
     try {
-        const res = await axios.get('http://localhost:4000/api/sucursales-status/DetalleErrorEstadoLocal', { params: { ID: fecha, codSAP: codSAP } })
+        const res = await axios.get('http://172.18.148.14:4000/api/sucursales-status/DetalleErrorEstadoLocal', { params: { ID: fecha, codSAP: codSAP } })
         dispatch({
             type: OBTENER_ERROR_EXITO,
             payload: {

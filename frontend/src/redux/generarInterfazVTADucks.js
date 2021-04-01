@@ -29,7 +29,7 @@ export const regenerarInterfazVTAReducer = (state = dataInicial, action) => {
 //Acciones
 export const regenerarInterfazVTAAccion = (fecha, CodSap, bandera) => async (dispatch) => {
     try {
-        const res = await axios.get('http://localhost:4000/api/interfaz-vta', { params: { ID: fecha, Local: CodSap, Flag: bandera } })
+        const res = await axios.get('http://172.18.148.14:4000/api/interfaz-vta', { params: { ID: fecha, Local: CodSap, Flag: bandera } })
         dispatch({
             type: REGENERAR_INTERFAZ_VTA_EXITO,
             payload: {
@@ -46,7 +46,7 @@ export const regenerarInterfazVTAAccion = (fecha, CodSap, bandera) => async (dis
 
 export const verificarInterfazVTAAccion = (fecha, CodSap) => async (dispatch) => {
     try {
-        const res = await axios.get('http://localhost:4000/api/logs/verificar', { params: { ID: fecha, Local: CodSap } })
+        const res = await axios.get('http://172.18.148.14:4000/api/logs/verificar', { params: { ID: fecha, Local: CodSap } })
         dispatch({
             type: VERIFICAR_INTERFAZ_VTA_EXITO,
             payload: res.data

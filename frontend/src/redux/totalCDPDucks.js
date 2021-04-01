@@ -24,7 +24,7 @@ export const totalesCDPReducer = (state = dataInicial, action) => {
 //Acciones
 export const totalesCDPAccion = (local, fecha) => async (dispatch) => {
     try {
-        const res = await axios.get('http://localhost:4000/api/totales-cdp', { params: { ID: fecha, Local: local } });
+        const res = await axios.get('http://172.18.148.14:4000/api/totales-cdp', { params: { ID: fecha, Local: local } });
         dispatch({
             type: OBTENER_TOTALESCDP_EXITO,
             payload: {

@@ -22,7 +22,7 @@ export const PerfilesReducer = (state = dataInicial, action) => {
 //Acciones
 export const obtenerPerfilAccion = () => async (dispatch) => {
     try {
-        const res = await axios.get('http://localhost:4000/api/perfiles');
+        const res = await axios.get('http://172.18.148.14:4000/api/perfiles');
         dispatch({
             type: OBTENER_PERFILES_EXITO,
             payload: res.data
@@ -37,7 +37,7 @@ export const obtenerPerfilAccion = () => async (dispatch) => {
 
 export const crearPerfilAccion = (Perfil, Modulos) => async (dispatch) => {
     try {
-        const res = await axios.get('http://localhost:4000/api/perfiles');
+        const res = await axios.get('http://172.18.148.14:4000/api/perfiles');
         dispatch({
             type: OBTENER_PERFILES_EXITO,
             payload: res.data
@@ -51,7 +51,7 @@ export const crearPerfilAccion = (Perfil, Modulos) => async (dispatch) => {
 
 export const editarPerfilAccion = (Id, Perfil, Modulos) => async (dispatch) => {
     try {
-        const res = await axios.get('http://localhost:4000/api/perfiles');
+        const res = await axios.get('http://172.18.148.14:4000/api/perfiles');
         dispatch({
             type: OBTENER_PERFILES_EXITO,
             payload: res.data
@@ -65,7 +65,7 @@ export const editarPerfilAccion = (Id, Perfil, Modulos) => async (dispatch) => {
 
 export const eliminarPerfilAccion = (Id) => async (dispatch) => {
     try {
-        const res = await axios.get('http://localhost:4000/api/perfiles');
+        const res = await axios.get('http://172.18.148.14:4000/api/perfiles');
         dispatch({
             type: OBTENER_PERFILES_EXITO,
             payload: res.data

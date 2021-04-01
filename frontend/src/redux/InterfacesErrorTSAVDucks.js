@@ -25,7 +25,7 @@ export const interfacesErrorTSAVReducer = (state = dataInicial, action) => {
 //Acciones
 export const obtenerInterfacesErrorTSAVAccion = (selectedDate, Local, TipoInterfaz, Estado) => async (dispatch) => {
     try {
-        const res = await axios.get('http://localhost:4000/api/interfacesErrorTSAV', { params: { ID: selectedDate, Local: Local, TipoInterfaz: TipoInterfaz, Estado: Estado } })
+        const res = await axios.get('http://172.18.148.14:4000/api/interfacesErrorTSAV', { params: { ID: selectedDate, Local: Local, TipoInterfaz: TipoInterfaz, Estado: Estado } })
         dispatch({
             type: OBTENER_INTERFACES_ERRORTSAV_EXITO,
             payload: {
@@ -41,7 +41,7 @@ export const obtenerInterfacesErrorTSAVAccion = (selectedDate, Local, TipoInterf
 
 export const reenviarInterfacesTSAVAccion = (selected) => async (dispatch) => {
     try {
-        const res = await axios.get('http://localhost:4000/api/interfacesErrorTSAV/enviar-tsav', { params: { selected } })
+        const res = await axios.get('http://172.18.148.14:4000/api/interfacesErrorTSAV/enviar-tsav', { params: { selected } })
         dispatch({
             type: REENVIAR_INTERFACES_ERRORTSAV_EXITO,
             payload: {

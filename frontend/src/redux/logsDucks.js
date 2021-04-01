@@ -26,7 +26,7 @@ export const logsReducer = (state = dataInicial, action) => {
 //Acciones
 export const obtenerLogsAccion = (usuarios, fecha, accion, severidad, dataExtra) => async (dispatch) => {
     try {
-        const res = await axios.get('http://localhost:4000/api/logs', { params: { usuarios, fecha, accion, severidad, dataExtra } });
+        const res = await axios.get('http://172.18.148.14:4000/api/logs', { params: { usuarios, fecha, accion, severidad, dataExtra } });
         dispatch({
             type: OBTENER_LOGS_EXITO,
             payload: res.data
@@ -40,7 +40,7 @@ export const obtenerLogsAccion = (usuarios, fecha, accion, severidad, dataExtra)
 
 export const insertarLogsAccion = (usuarios, accion, severidad, dataExtra) => async (dispatch) => {
     try {
-        const res = await axios.get('http://localhost:4000/api/logs/insert', { params: { usuarios, accion, severidad, dataExtra } });
+        const res = await axios.get('http://172.18.148.14:4000/api/logs/insert', { params: { usuarios, accion, severidad, dataExtra } });
         dispatch({
             type: INSERTAR_LOGS_EXITO,
             payload: res.data
